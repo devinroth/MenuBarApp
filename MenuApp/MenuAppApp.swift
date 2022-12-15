@@ -13,13 +13,19 @@ struct MenuAppApp: App {
     @StateObject var test = Test()
     
     var body: some Scene {
-        MenuBarExtra("Title") {
-            //getView()
+        MenuBarExtra("MenuBarExtra") {
+            VStack {
+                Text("MenuBarExtra")
+                getView()
+            }
         }.menuBarExtraStyle(.window)
         
-        WindowGroup {
-            getView()
-        }
+//        WindowGroup {
+//            VStack {
+//                Text("WindowGroup")
+//                getView()
+//            }
+//        }
     }
     
     func getView()->some View {
