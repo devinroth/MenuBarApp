@@ -10,52 +10,51 @@ import SwiftUI
 @main
 struct MenuAppApp: App {
     
-    @StateObject var test = Test()
+    var theBeatles = TheBeatles()
     
     var body: some Scene {
         MenuBarExtra("MenuBarExtra") {
-            VStack {
-                Text("MenuBarExtra")
-                getView()
-            }
+            ContentView().environmentObject(theBeatles)
         }.menuBarExtraStyle(.window)
         
-//        WindowGroup {
-//            VStack {
-//                Text("WindowGroup")
-//                getView()
-//            }
-//        }
+        Window("Window", id: "Window") {
+            ContentView().environmentObject(theBeatles)
+        }
     }
+}
+
+struct ContentView: View {
     
-    func getView()->some View {
+    @EnvironmentObject var theBeatles: TheBeatles
+    
+    var body: some View {
         VStack {
-            Toggle("Toggle", isOn: $test.toggle)
+            Toggle("I love The Beatles", isOn: $theBeatles.iLoveTheBeatles)
             
-            Menu(test.favoriteBeatle) {
-                ForEach(test.beatles, id: \.self) { beatle in
+            Menu(theBeatles.favoriteBeatle) {
+                ForEach(theBeatles.beatles, id: \.self) { beatle in
                     Button(beatle) {
-                        test.favoriteBeatle = beatle
+                        theBeatles.favoriteBeatle = beatle
                     }
                 }
             }
 
             List {
-                ForEach(test.beatles, id: \.self) { beatle in
+                ForEach(theBeatles.beatles, id: \.self) { beatle in
                     Text(beatle)
                 }.onMove {
-                    test.beatles.move(fromOffsets: $0, toOffset: $1)
+                    theBeatles.beatles.move(fromOffsets: $0, toOffset: $1)
                 }
             }
-        }
+        }.padding()
     }
 }
 
-class Test: ObservableObject {
+class TheBeatles: ObservableObject {
     
-    @Published public var toggle: Bool = true {
+    @Published public var iLoveTheBeatles: Bool = true {
         didSet {
-            print(toggle)
+            print(iLoveTheBeatles)
         }
     }
     

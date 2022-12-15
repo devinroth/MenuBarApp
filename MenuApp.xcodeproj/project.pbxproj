@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3DDEF8082947D8A9006B254D /* MenuAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDEF8072947D8A9006B254D /* MenuAppApp.swift */; };
-		3DDEF80A2947D8A9006B254D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDEF8092947D8A9006B254D /* ContentView.swift */; };
 		3DDEF80C2947D8AA006B254D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDEF80B2947D8AA006B254D /* Assets.xcassets */; };
 		3DDEF8102947D8AA006B254D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDEF80F2947D8AA006B254D /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +15,6 @@
 /* Begin PBXFileReference section */
 		3DDEF8042947D8A9006B254D /* MenuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDEF8072947D8A9006B254D /* MenuAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAppApp.swift; sourceTree = "<group>"; };
-		3DDEF8092947D8A9006B254D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3DDEF80B2947D8AA006B254D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DDEF80D2947D8AA006B254D /* MenuApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuApp.entitlements; sourceTree = "<group>"; };
 		3DDEF80F2947D8AA006B254D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -53,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				3DDEF8072947D8A9006B254D /* MenuAppApp.swift */,
-				3DDEF8092947D8A9006B254D /* ContentView.swift */,
 				3DDEF80B2947D8AA006B254D /* Assets.xcassets */,
 				3DDEF80D2947D8AA006B254D /* MenuApp.entitlements */,
 				3DDEF80E2947D8AA006B254D /* Preview Content */,
@@ -139,7 +136,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DDEF80A2947D8A9006B254D /* ContentView.swift in Sources */,
 				3DDEF8082947D8A9006B254D /* MenuAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
