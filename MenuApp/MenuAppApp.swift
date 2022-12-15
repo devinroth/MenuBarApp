@@ -14,32 +14,34 @@ struct MenuAppApp: App {
     
     var body: some Scene {
         MenuBarExtra("Title") {
-            VStack {
-                Toggle("Toggle", isOn: $test.toggle)
-
-                List {
-                    ForEach(test.beatles, id: \.self) { beatle in
-                        Text(beatle)
-                    }.onMove {
-                        test.beatles.move(fromOffsets: $0, toOffset: $1)
+            //getView()
+        }.menuBarExtraStyle(.window)
+        
+        WindowGroup {
+            getView()
+        }
+    }
+    
+    func getView()->some View {
+        VStack {
+            Toggle("Toggle", isOn: $test.toggle)
+            
+            Menu(test.favoriteBeatle) {
+                ForEach(test.beatles, id: \.self) { beatle in
+                    Button(beatle) {
+                        test.favoriteBeatle = beatle
                     }
                 }
             }
-        }.menuBarExtraStyle(.window)
-        
-//        WindowGroup {
-//            VStack {
-//                Toggle("Toggle", isOn: $test.toggle)
-//
-//                List {
-//                    ForEach(test.beatles, id: \.self) { beatle in
-//                        Text(beatle)
-//                    }.onMove {
-//                        test.beatles.move(fromOffsets: $0, toOffset: $1)
-//                    }
-//                }
-//            }
-//        }
+
+            List {
+                ForEach(test.beatles, id: \.self) { beatle in
+                    Text(beatle)
+                }.onMove {
+                    test.beatles.move(fromOffsets: $0, toOffset: $1)
+                }
+            }
+        }
     }
 }
 
@@ -50,6 +52,13 @@ class Test: ObservableObject {
             print(toggle)
         }
     }
+    
+    @Published public var favoriteBeatle = "George" {
+        didSet {
+            print(favoriteBeatle)
+        }
+    }
+    
     @Published public var beatles: [String] = ["John", "Paul", "George", "Ringo"] {
         didSet {
             print(beatles)
