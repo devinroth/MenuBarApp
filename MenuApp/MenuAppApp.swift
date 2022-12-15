@@ -31,6 +31,9 @@ struct ContentView: View {
         VStack {
             Toggle("I love The Beatles", isOn: $theBeatles.iLoveTheBeatles)
             
+            Divider()
+            
+            Text("Favorite Beatle")
             Menu(theBeatles.favoriteBeatle) {
                 ForEach(theBeatles.beatles, id: \.self) { beatle in
                     Button(beatle) {
@@ -38,7 +41,10 @@ struct ContentView: View {
                     }
                 }
             }
-
+            
+            Divider()
+            
+            Text("The Beatles")
             List {
                 ForEach(theBeatles.beatles, id: \.self) { beatle in
                     Text(beatle)
@@ -46,6 +52,7 @@ struct ContentView: View {
                     theBeatles.beatles.move(fromOffsets: $0, toOffset: $1)
                 }
             }
+
         }.padding()
     }
 }
